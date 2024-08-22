@@ -1,4 +1,4 @@
-import { NgStyle } from '@angular/common';
+import { NgStyle, NgTemplateOutlet } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -13,7 +13,7 @@ import { renderer2Utility } from '../../utilities/renderer2.utility';
 @Component({
   selector: 'app-preview-component',
   standalone: true,
-  imports: [NgStyle],
+  imports: [NgStyle, NgTemplateOutlet],
   templateUrl: './preview-component.component.html',
   styleUrl: './preview-component.component.scss',
 })
@@ -22,8 +22,6 @@ export class PreviewComponent implements AfterViewInit {
   @Input({ required: true }) public position!: IPreviewPosition;
   @ViewChild('outlet', { static: true })
   private _outlet!: ElementRef<HTMLDivElement>;
-  @ViewChild('contentElementRef', { static: true })
-  private _contentElementRef!: ElementRef<HTMLDivElement>;
   private _renderer2Utility = renderer2Utility();
 
   constructor() {}
@@ -38,7 +36,6 @@ export class PreviewComponent implements AfterViewInit {
       hostCenterX: cardCenterX,
       hostCenterY: cardCenterY,
     } = this.position;
-    console.log('zone', zone);
 
     switch (zone) {
       case 'a':

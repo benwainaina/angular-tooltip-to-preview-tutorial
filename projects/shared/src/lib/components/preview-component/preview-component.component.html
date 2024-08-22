@@ -1,1 +1,29 @@
-<div #outlet class="wrapper">preview goes here</div>
+<div #outlet class="wrapper">
+  <div class="wrapper__section-one">
+    <div class="wrapper__section-one__avatar"></div>
+    <div class="wrapper__section-one__details">
+      <div class="wrapper__section-one__details__username"></div>
+      <div class="wrapper__section-one__details__fullname"></div>
+    </div>
+  </div>
+  <div class="wrapper__section-two">
+    <div class="wrapper__section-two__posts"></div>
+  </div>
+  <div class="wrapper__section-three">
+    <ng-container
+      *ngTemplateOutlet="
+        userData.samplePhotos ? recentPhotosTemplate : noPostsYetTemplate
+      "
+    ></ng-container>
+    <ng-template #recentPhotosTemplate> recent </ng-template>
+    <ng-template #noPostsYetTemplate> no posts </ng-template>
+  </div>
+  <div class="wrapper__section-four">Follow</div>
+</div>
+
+<ng-template #accountMetricTemplate let-value="value" let-label="label">
+  <div class="account-metric">
+    <div class="account-metric__value">{{ value }}</div>
+    <div class="account-metric__label">{{ label }}</div>
+  </div>
+</ng-template>

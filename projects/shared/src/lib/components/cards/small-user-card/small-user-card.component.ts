@@ -14,4 +14,6 @@ import { PreviewComponent } from '../../preview-component/preview-component.comp
 export class SmallUserCardComponent extends BaseUserCardComponent {
   @ViewChild('outletAnchorElement', { static: true, read: ViewContainerRef })
   public outletAnchorElementRef!: ViewContainerRef;
+  @ViewChild('outerOutletParent', { static: true, read: ViewContainerRef })
+  public outerOutletParentRef!: ViewContainerRef;
 }

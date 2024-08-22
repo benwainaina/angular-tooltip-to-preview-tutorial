@@ -12,6 +12,7 @@ export class PreviewDirective implements OnInit {
   @Input({ required: true }) public userData!: IUser;
   @Input({ required: true }) public outletAnchorElement!: any;
   @Input({ required: true }) public parentAnchor!: string;
+  @Input() public snapToElementRef: any;
 
   ngOnInit(): void {
     this._listenForHoverOnHost();
@@ -62,6 +63,16 @@ export class PreviewDirective implements OnInit {
       placementPosition.zone = 'c';
     } else if (hostX > listCenterX && hostY > listCenterY) {
       placementPosition.zone = 'a';
+    }
+    if (this.snapToElementRef) {
+      /**
+       * if there is an anchor to snap to, we snap to it
+       */
+      const { x: snapToX, y: snapToY } =
+        this.snapToElementRef.element.nativeElement.getBoundingClientRect();
+      placementPosition.hostCenterX = snapToX + 20;
+      placementPosition.hostCenterY = snapToY + 24;
+      placementPosition.zone = 'd';
     }
     return placementPosition;
   }

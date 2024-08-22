@@ -17,6 +17,11 @@ export interface IUser {
   posts: number;
 
   /**
+   * sample of three photos
+   */
+  samplePhotos: Array<string>;
+
+  /**
    * number of followers for this user
    */
   followers: number;

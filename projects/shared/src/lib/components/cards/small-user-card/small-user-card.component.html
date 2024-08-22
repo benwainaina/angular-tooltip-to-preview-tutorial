@@ -3,6 +3,7 @@
   [userData]="userData"
   [outletAnchorElement]="outletAnchorElementRef"
   [parentAnchor]="'div.wrapper__list-two__content'"
+  [snapToElementRef]="outerOutletParentRef"
   class="wrapper"
 >
   <div
@@ -11,14 +12,14 @@
       'background-image': 'url(' + userData.avatar + ')'
     }"
   ></div>
-  <div class="wrapper__details">
+  <div #outerOutletParent class="wrapper__details">
     <div class="wrapper__details__username poppins-bold">
       {{ userData.username }}
     </div>
     <div class="wrapper__details__touch-point poppins-regular">
       New to instagram
     </div>
+    <ng-template #outletAnchorElement></ng-template>
   </div>
   <div class="wrapper__action poppins-bold">Follow</div>
-  <ng-template #outletAnchorElement></ng-template>
 </div>

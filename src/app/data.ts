@@ -8,6 +8,11 @@ export const data: Array<IUser> = [
     followers: 45,
     following: 51,
     avatar: 'https://picsum.photos/200/300',
+    samplePhotos: [
+      'https://picsum.photos/200/300',
+      'https://picsum.photos/200/300',
+      'https://picsum.photos/200/300',
+    ],
   },
   {
     fullname: 'Angular Community',
@@ -16,6 +21,10 @@ export const data: Array<IUser> = [
     followers: 29700,
     following: 30,
     avatar: 'https://picsum.photos/200/300',
+    samplePhotos: [
+      'https://picsum.photos/200/300',
+      'https://picsum.photos/200/300',
+    ],
   },
   {
     fullname: 'React Native Community',
@@ -24,6 +33,10 @@ export const data: Array<IUser> = [
     followers: 8209,
     following: 79,
     avatar: 'https://picsum.photos/200/300',
+    samplePhotos: [
+      'https://picsum.photos/200/300',
+      'https://picsum.photos/200/300',
+    ],
   },
   {
     fullname: 'JavaScript Mastery',
@@ -32,6 +45,7 @@ export const data: Array<IUser> = [
     followers: 256000,
     following: 0,
     avatar: 'https://picsum.photos/200/300',
+    samplePhotos: [],
   },
   {
     fullname: 'Google',
@@ -40,5 +54,6 @@ export const data: Array<IUser> = [
     followers: 15200000,
     following: 34,
     avatar: 'https://picsum.photos/200/300',
+    samplePhotos: ['https://picsum.photos/200/300'],
   },
 ];
