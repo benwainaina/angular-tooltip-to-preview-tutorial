@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div
+    class="wrapper__avatar"
+    [ngStyle]="{
+      'background-image': 'url(' + userData.avatar + ')'
+    }"
+  ></div>
+  <div class="wrapper__details">
+    <div class="wrapper__details__username poppins-bold">
+      {{ userData.username }}
+    </div>
+    <div class="wrapper__details__touch-point poppins-regular">
+      New to instagram
+    </div>
+  </div>
+  <div class="wrapper__action poppins-bold">Follow</div>
+</div>

@@ -1,0 +1,35 @@
+.wrapper {
+  width: 250px;
+  aspect-ratio: 1;
+  background-color: white;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 24px;
+  padding: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    border-radius: 100px;
+  }
+
+  &__follow {
+    color: rgb(0 149 246);
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    font-size: 14px;
+  }
+
+  &__details {
+    font-size: 14px;
+    position: absolute;
+    bottom: 24px;
+  }
+}

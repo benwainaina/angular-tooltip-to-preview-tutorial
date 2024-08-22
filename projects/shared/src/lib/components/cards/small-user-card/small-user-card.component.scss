@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  min-width: 300px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  column-gap: 24px;
+  cursor: pointer;
+
+  &__avatar {
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 60px;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    justify-content: center;
+
+    &__username {
+      font-size: 14px;
+    }
+
+    &__touch-point {
+      font-size: 14px;
+    }
+  }
+
+  &__action {
+    color: rgb(0 149 246);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+}

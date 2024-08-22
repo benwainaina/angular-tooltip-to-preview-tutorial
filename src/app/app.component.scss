@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  &__list-one,
+  &__list-two {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 48px;
+
+    &__content {
+      display: flex;
+    }
+  }
+
+  &__list-one {
+    flex: 1;
+
+    &__content {
+      flex-wrap: wrap;
+      column-gap: 32px;
+      row-gap: 72px;
+      padding-left: 32px;
+    }
+  }
+
+  &__list-two {
+    border-left: 2px solid #ddd;
+    flex: 1;
+
+    &__content {
+      flex-direction: column;
+    }
+  }
+
+  .header {
+    text-align: center;
+  }
+}
