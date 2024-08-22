@@ -1,4 +1,10 @@
-<div class="wrapper">
+<div
+  previewDirective
+  [userData]="userData"
+  [outletAnchorElement]="outletAnchorElementRef"
+  [parentAnchor]="'div.wrapper__list-one__content'"
+  class="wrapper"
+>
   <div class="wrapper__follow poppins-bold">Follow</div>
   <div
     class="wrapper__image"
@@ -7,4 +13,5 @@
     }"
   ></div>
   <div class="wrapper__details poppins-bold">{{ userData.username }}</div>
+  <ng-template #outletAnchorElement></ng-template>
 </div>

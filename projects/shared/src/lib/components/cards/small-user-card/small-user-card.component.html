@@ -1,4 +1,10 @@
-<div class="wrapper">
+<div
+  previewDirective
+  [userData]="userData"
+  [outletAnchorElement]="outletAnchorElementRef"
+  [parentAnchor]="'div.wrapper__list-two__content'"
+  class="wrapper"
+>
   <div
     class="wrapper__avatar"
     [ngStyle]="{
@@ -14,4 +20,5 @@
     </div>
   </div>
   <div class="wrapper__action poppins-bold">Follow</div>
+  <ng-template #outletAnchorElement></ng-template>
 </div>

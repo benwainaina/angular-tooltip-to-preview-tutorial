@@ -1,5 +1,5 @@
 import { Directive, ElementRef, inject, Input, OnInit } from '@angular/core';
-import { IPreviewPosition } from '../interfaces';
+import { IPreviewPosition, IUser } from '../interfaces';
 import { PreviewComponent } from '../components/preview-component/preview-component.component';
 
 @Directive({
@@ -9,8 +9,9 @@ import { PreviewComponent } from '../components/preview-component/preview-compon
 export class PreviewDirective implements OnInit {
   private _hostElement: ElementRef<HTMLDivElement> = inject(ElementRef);
 
-  @Input({ required: true }) public userId!: string;
-  @Input({ required: true }) public previewOutlet!: any;
+  @Input({ required: true }) public userData!: IUser;
+  @Input({ required: true }) public outletAnchorElement!: any;
+  @Input({ required: true }) public parentAnchor!: string;
 
   ngOnInit(): void {
     this._listenForHoverOnHost();
@@ -43,8 +44,8 @@ export class PreviewDirective implements OnInit {
       x: listStartX = 0,
       y: listStartY = 0,
     } = this._hostElement.nativeElement
-      .closest('app-list-display')
-      ?.parentElement?.getBoundingClientRect() || {};
+      .closest(this.parentAnchor)
+      ?.getBoundingClientRect() || {};
 
     const listCenterX = listStartX + listWidth / 2;
     const listCenterY = listStartY + listHeight / 2;
@@ -67,13 +68,13 @@ export class PreviewDirective implements OnInit {
 
   private _attachPreview(placement: IPreviewPosition): void {
     const componentInstance =
-      this.previewOutlet.createComponent(PreviewComponent);
-    componentInstance.instance.userId = this.userId;
+      this.outletAnchorElement.createComponent(PreviewComponent);
+    componentInstance.instance.userData = this.userData;
     componentInstance.instance.position = placement;
     componentInstance.changeDetectorRef.detectChanges();
   }
 
   private _detachPreview(): void {
-    this.previewOutlet.remove();
+    this.outletAnchorElement.remove();
   }
 }
