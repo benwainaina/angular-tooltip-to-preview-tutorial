@@ -68,10 +68,13 @@ export class PreviewDirective implements OnInit {
       /**
        * if there is an anchor to snap to, we snap to it
        */
-      const { x: snapToX, y: snapToY } =
-        this.snapToElementRef.element.nativeElement.getBoundingClientRect();
-      placementPosition.hostCenterX = snapToX + 20;
-      placementPosition.hostCenterY = snapToY + 24;
+      const {
+        x: snapToX,
+        y: snapToY,
+        height: snapToHeight,
+      } = this.snapToElementRef.element.nativeElement.getBoundingClientRect();
+      placementPosition.hostCenterX = snapToX;
+      placementPosition.hostCenterY = snapToY + snapToHeight;
       placementPosition.zone = 'd';
     }
     return placementPosition;

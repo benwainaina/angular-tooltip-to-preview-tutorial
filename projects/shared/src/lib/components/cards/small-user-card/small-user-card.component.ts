@@ -12,8 +12,19 @@ import { PreviewComponent } from '../../preview-component/preview-component.comp
   styleUrl: './small-user-card.component.scss',
 })
 export class SmallUserCardComponent extends BaseUserCardComponent {
-  @ViewChild('outletAnchorElement', { static: true, read: ViewContainerRef })
-  public outletAnchorElementRef!: ViewContainerRef;
-  @ViewChild('outerOutletParent', { static: true, read: ViewContainerRef })
+  // username outlets
+  @ViewChild('usernameOutlet', { static: true, read: ViewContainerRef })
+  public usernameOutletRef!: ViewContainerRef;
+
+  // username snapto anchor
+  @ViewChild('usernameSnapTo', { static: true, read: ViewContainerRef })
   public outerOutletParentRef!: ViewContainerRef;
+
+  // avatar outlet
+  @ViewChild('avatarOutlet', { static: true, read: ViewContainerRef })
+  public avatarOutletRef!: ViewContainerRef;
+
+  // avatar snapto anchor
+  @ViewChild('avatarSnapTo', { static: true, read: ViewContainerRef })
+  public avatarSnapToRef!: ViewContainerRef;
 }
