@@ -12,4 +12,4 @@ instagram "hover to preview" using the below:
 <h3>Remember, you stop growing the moment you stop learning, and what you learn go forth and teach someone</h3>
 
 <h3>Demo</h3>
-![](https://raw.githubusercontent.com/benwainaina/angular-tooltip-to-preview-tutorial/main/demo.gif)
+<img  src="https://raw.githubusercontent.com/benwainaina/angular-tooltip-to-preview-tutorial/main/demo.gif">
