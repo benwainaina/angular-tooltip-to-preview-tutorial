@@ -16,8 +16,8 @@ export const data: Array<IUser> = [
     ],
   },
   {
-    fullname: 'Angular Community',
-    username: 'angular.community',
+    fullname: 'You Stop',
+    username: 'youtstop',
     posts: 169,
     followers: 29700,
     following: 30,
@@ -28,8 +28,8 @@ export const data: Array<IUser> = [
     ],
   },
   {
-    fullname: 'React Native Community',
-    username: 'react_native_community',
+    fullname: 'Growing',
+    username: 'growing',
     posts: 28,
     followers: 8209,
     following: 79,
@@ -40,8 +40,8 @@ export const data: Array<IUser> = [
     ],
   },
   {
-    fullname: 'JavaScript Mastery',
-    username: 'javascriptmastery',
+    fullname: 'When You Stop',
+    username: 'when.you.stop',
     posts: 1481,
     followers: 256000,
     following: 0,
@@ -49,8 +49,8 @@ export const data: Array<IUser> = [
     samplePhotos: [],
   },
   {
-    fullname: 'Google',
-    username: 'google',
+    fullname: 'Learning',
+    username: 'learning',
     posts: 1,
     followers: 15200000,
     following: 34,

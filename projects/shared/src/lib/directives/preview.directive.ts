@@ -8,6 +8,7 @@ import { PreviewComponent } from '../components/preview-component/preview-compon
 })
 export class PreviewDirective implements OnInit {
   private _hostElement: ElementRef<HTMLDivElement> = inject(ElementRef);
+  private _timeoutRef!: NodeJS.Timeout;
 
   @Input({ required: true }) public userData!: IUser;
   @Input({ required: true }) public outletAnchorElement!: any;
@@ -19,13 +20,15 @@ export class PreviewDirective implements OnInit {
   }
 
   private _listenForHoverOnHost(): void {
-    this._hostElement.nativeElement.addEventListener('mouseenter', (ev) =>
-      this._attachPreview(
-        this._calculatePreviewPlacement(
-          this._hostElement.nativeElement.getBoundingClientRect()
-        )
-      )
-    );
+    this._hostElement.nativeElement.addEventListener('mouseenter', (ev) => {
+      this._timeoutRef = setTimeout(() => {
+        this._attachPreview(
+          this._calculatePreviewPlacement(
+            this._hostElement.nativeElement.getBoundingClientRect()
+          )
+        );
+      }, 500);
+    });
 
     this._hostElement.nativeElement.addEventListener('mouseleave', (ev) =>
       this._detachPreview()
@@ -89,6 +92,7 @@ export class PreviewDirective implements OnInit {
   }
 
   private _detachPreview(): void {
+    clearTimeout(this._timeoutRef);
     this.outletAnchorElement.remove();
   }
 }
