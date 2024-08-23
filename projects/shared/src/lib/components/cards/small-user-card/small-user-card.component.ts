@@ -2,7 +2,7 @@ import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { BaseUserCardComponent } from '../base-user-card.component';
 import { NgStyle } from '@angular/common';
 import { PreviewDirective } from '../../../directives/preview.directive';
-import { PreviewComponent } from '../../preview-component/preview-component.component';
+import { PreviewComponent } from '../../preview-component/preview.component';
 
 @Component({
   selector: 'lib-small-user-card',

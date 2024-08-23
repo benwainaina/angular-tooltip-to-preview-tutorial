@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PreviewComponentComponent } from './preview-component.component';
+import { PreviewComponentComponent } from './preview.component';
 
 describe('PreviewComponentComponent', () => {
   let component: PreviewComponentComponent;
@@ -8,9 +8,8 @@ describe('PreviewComponentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PreviewComponentComponent]
-    })
-    .compileComponents();
+      imports: [PreviewComponentComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PreviewComponentComponent);
     component = fixture.componentInstance;

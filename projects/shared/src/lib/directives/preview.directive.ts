@@ -1,6 +1,6 @@
 import { Directive, ElementRef, inject, Input, OnInit } from '@angular/core';
 import { IPreviewPosition, IUser } from '../interfaces';
-import { PreviewComponent } from '../components/preview-component/preview-component.component';
+import { PreviewComponent } from '../components/preview-component/preview.component';
 
 @Directive({
   selector: '[previewDirective]',

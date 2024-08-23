@@ -14,8 +14,8 @@ import { NumberFormatterPipe } from '../../pipes/numberFormatter.pipe';
   selector: 'app-preview-component',
   standalone: true,
   imports: [NgStyle, NgTemplateOutlet, NgFor, NumberFormatterPipe],
-  templateUrl: './preview-component.component.html',
-  styleUrl: './preview-component.component.scss',
+  templateUrl: './preview.component.html',
+  styleUrl: './preview.component.scss',
 })
 export class PreviewComponent implements AfterViewInit {
   @Input({ required: true }) public userData!: IUser;
