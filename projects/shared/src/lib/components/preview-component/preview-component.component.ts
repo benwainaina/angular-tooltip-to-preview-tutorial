@@ -1,25 +1,25 @@
-import { NgStyle, NgTemplateOutlet } from '@angular/common';
+import { NgFor, NgStyle, NgTemplateOutlet } from '@angular/common';
 import {
   AfterViewInit,
   Component,
   ElementRef,
   Input,
-  OnInit,
   ViewChild,
 } from '@angular/core';
 import { IPreviewPosition, IUser } from '../../interfaces';
 import { renderer2Utility } from '../../utilities/renderer2.utility';
+import { NumberFormatterPipe } from '../../pipes/numberFormatter.pipe';
 
 @Component({
   selector: 'app-preview-component',
   standalone: true,
-  imports: [NgStyle, NgTemplateOutlet],
+  imports: [NgStyle, NgTemplateOutlet, NgFor, NumberFormatterPipe],
   templateUrl: './preview-component.component.html',
   styleUrl: './preview-component.component.scss',
 })
 export class PreviewComponent implements AfterViewInit {
   @Input({ required: true }) public userData!: IUser;
-  @Input({ required: true }) public position!: IPreviewPosition;
+  @Input() public position!: IPreviewPosition;
   @ViewChild('outlet', { static: true })
   private _outlet!: ElementRef<HTMLDivElement>;
   private _renderer2Utility = renderer2Utility();
@@ -27,7 +27,9 @@ export class PreviewComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit(): void {
-    this._pickPlacementPosition();
+    if (this.position) {
+      this._pickPlacementPosition();
+    }
   }
 
   private _pickPlacementPosition(): void {

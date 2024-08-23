@@ -18,6 +18,7 @@ import { MediumUserCardComponent } from '../../projects/shared/src/lib/component
     PreviewComponent,
     SmallUserCardComponent,
     MediumUserCardComponent,
+    PreviewComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
