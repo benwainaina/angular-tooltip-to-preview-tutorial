@@ -77,8 +77,11 @@ export class PreviewDirective implements OnInit {
         height: snapToHeight,
       } = this.snapToElementRef.element.nativeElement.getBoundingClientRect();
       placementPosition.hostCenterX = snapToX;
-      placementPosition.hostCenterY = snapToY + snapToHeight;
-      placementPosition.zone = 'd';
+      placementPosition.hostCenterY =
+        snapToY +
+        (placementPosition.zone === 'c' || placementPosition.zone === 'd'
+          ? snapToHeight
+          : 0);
     }
     return placementPosition;
   }

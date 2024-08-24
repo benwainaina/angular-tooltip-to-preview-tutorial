@@ -27,88 +27,30 @@ export class PreviewComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit(): void {
-    if (this.position) {
-      this._pickPlacementPosition();
-    }
+    this._pickPlacementPosition();
   }
 
   private _pickPlacementPosition(): void {
-    const {
-      zone,
-      hostCenterX: cardCenterX,
-      hostCenterY: cardCenterY,
-    } = this.position;
-
+    const { zone, hostCenterX, hostCenterY } = this.position;
+    const { height: hostHeight, width: hostWidth } =
+      this._outlet.nativeElement.getBoundingClientRect() || {};
     switch (zone) {
       case 'a':
-        return this._placeInZoneA(cardCenterX, cardCenterY);
+        return this._placeInZone(
+          hostCenterX - hostWidth,
+          hostCenterY - hostHeight
+        );
       case 'b':
-        return this._placeInZoneB(cardCenterX, cardCenterY);
+        return this._placeInZone(hostCenterX, hostCenterY - hostHeight);
       case 'c':
-        return this._placeInZoneC(cardCenterX, cardCenterY);
+        return this._placeInZone(hostCenterX - hostWidth, hostCenterY);
       case 'd':
-        return this._placeInZoneD(cardCenterX, cardCenterY);
+        return this._placeInZone(hostCenterX, hostCenterY);
     }
   }
 
-  private _placeInZoneA(cardCenterX: number, cardCenterY: number): void {
-    const { height: hostHeight, width: hostWidth } =
-      this._getHostElementDomRect();
-    this._renderer2Utility(
-      this._outlet.nativeElement,
-      'left',
-      `${cardCenterX - hostWidth}px`
-    );
-    this._renderer2Utility(
-      this._outlet.nativeElement,
-      'top',
-      `${cardCenterY - hostHeight}px`
-    );
-  }
-
-  private _placeInZoneB(cardCenterX: number, cardCenterY: number): void {
-    const { height: hostHeight, width: hostWidth } =
-      this._getHostElementDomRect();
-    this._renderer2Utility(
-      this._outlet.nativeElement,
-      'left',
-      `${cardCenterX}px`
-    );
-    this._renderer2Utility(
-      this._outlet.nativeElement,
-      'top',
-      `${cardCenterY - hostHeight}px`
-    );
-  }
-
-  private _placeInZoneC(cardCenterX: number, cardCenterY: number): void {
-    const { width: hostWidth } = this._getHostElementDomRect();
-    this._renderer2Utility(
-      this._outlet.nativeElement,
-      'left',
-      `${cardCenterX - hostWidth}px`
-    );
-    this._renderer2Utility(
-      this._outlet.nativeElement,
-      'top',
-      `${cardCenterY}px`
-    );
-  }
-
-  private _placeInZoneD(cardCenterX: number, cardCenterY: number): void {
-    this._renderer2Utility(
-      this._outlet.nativeElement,
-      'left',
-      `${cardCenterX}px`
-    );
-    this._renderer2Utility(
-      this._outlet.nativeElement,
-      'top',
-      `${cardCenterY}px`
-    );
-  }
-
-  private _getHostElementDomRect(): DOMRect {
-    return this._outlet.nativeElement.getBoundingClientRect() || {};
+  private _placeInZone(left: number, top: number): void {
+    this._renderer2Utility(this._outlet.nativeElement, 'left', `${left}px`);
+    this._renderer2Utility(this._outlet.nativeElement, 'top', `${top}px`);
   }
 }
