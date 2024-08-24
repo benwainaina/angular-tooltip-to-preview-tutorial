@@ -40,14 +40,12 @@
   &__section-two {
     display: flex;
     justify-content: space-around;
-    // padding-bottom: 24px;
   }
 
   &__section-three {
     &__no-posts {
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      // margin-bottom: 24px;
       font-size: 14px;
       display: flex;
       align-items: center;
