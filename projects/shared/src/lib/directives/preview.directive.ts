@@ -7,13 +7,13 @@ import { PreviewComponent } from '../components/preview-component/preview.compon
   standalone: true,
 })
 export class PreviewDirective implements OnInit {
-  private _hostElement: ElementRef<HTMLDivElement> = inject(ElementRef);
-  private _timeoutRef!: NodeJS.Timeout;
-
   @Input({ required: true }) public userData!: IUser;
   @Input({ required: true }) public outletAnchorElement!: any;
   @Input({ required: true }) public parentAnchor!: string;
   @Input() public snapToElementRef: any;
+
+  private _hostElement: ElementRef<HTMLDivElement> = inject(ElementRef);
+  private _timeoutRef!: NodeJS.Timeout;
 
   ngOnInit(): void {
     this._listenForHoverOnHost();
